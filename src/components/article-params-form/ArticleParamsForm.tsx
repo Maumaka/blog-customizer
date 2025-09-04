@@ -39,12 +39,12 @@ export const ArticleParamsForm = ({
 	);
 	const [contentWidth, setContentWidth] = useState(articleState.contentWidth);
 
-	const ref = useRef<HTMLDivElement | null>(null);
+	const sidebarRef = useRef<HTMLDivElement | null>(null);
 
 	// Закрытие сайдбара при клике вне
 	useOutsideClickClose({
 		isOpen: isSidebarOpen,
-		rootRef: ref,
+		rootRef: sidebarRef,
 		onChange: (value: boolean) => setSidebarIsOpen(value),
 	});
 
@@ -72,7 +72,7 @@ export const ArticleParamsForm = ({
 	};
 
 	return (
-		<div ref={ref}>
+		<div ref={sidebarRef}>
 			<ArrowButton
 				isOpen={isSidebarOpen}
 				onClick={() => setSidebarIsOpen(!isSidebarOpen)}
